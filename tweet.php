@@ -11,10 +11,7 @@ function tweet($message){
     fwrite($tweetText, $txt);
     fclose($tweetText);
 
-    echo exec("ruby sendTweet.rb");
+    echo exec("ruby ruby/sendTweet.rb");
 }
 
-
-
 ?>
-//call ruby file
