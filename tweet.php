@@ -15,6 +15,4 @@ function tweet($message){
     echo system($cmd);
 }
 
-tweet("hello");
-
 ?>
