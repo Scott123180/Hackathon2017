@@ -54,11 +54,32 @@
             </span>-->
             <br></br>
             <div>
-            <button type="button" id="myButton">Submit Your Issue</button> 
+            <button type="button" id="myButton" data-toggle="modal" data-target="myModal">Submit Your Issue</button> 
             </div>
         </h1>
     </div>
 </div>
+
+            <!-- Modal -->
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title"><b><font color="red"> WARNING: </font></b></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="testing">Are you sure you want to continue?</p>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" name="submit" class="btn btn-default">Okay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
