@@ -9,6 +9,8 @@
     <!-- CSS  -->
     <link href="min/plugin-min.css" type="text/css" rel="stylesheet">
     <link href="min/custom-min.css" type="text/css" rel="stylesheet" >
+    <link href="css/style.css" type="text/css" rel="stylesheet" >
+    
 </head>
 <body id="top" class="scrollspy">
 
@@ -40,15 +42,20 @@
 </div>
 
 <!--Hero-->
+
 <div class="section no-pad-bot" id="index-banner">
     <div class="container">
         <h1 class="text_h center header cd-headline letters type">
-           <!-- <span>I Love</span> 
-            <span class="cd-words-wrapper waiting">
+           <span>Got a Process? Let's Improve it.</span> 
+            <!--<span class="cd-words-wrapper waiting">
                 <b class="is-visible">creating</b>
                 <b>designing</b>
                 <b>developing</b>
-            </span> -->
+            </span>-->
+            <br></br>
+            <div>
+            <button type="button" id="myButton">Submit Your Issue</button> 
+            </div>
         </h1>
     </div>
 </div>
