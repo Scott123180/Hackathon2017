@@ -30,11 +30,11 @@
             <div class="nav-wrapper">
             <a href="#" id="logo-container" class="brand-logo">Effervescence</a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href='admin.php' target="_blank">Admin</a></li>
+                    <li><a href='admin.php'>Admin</a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
                    
-                    <li><a href='admin.php' target="_blank">Admin</a></li>
+                    <li><a href='admin.php'>Admin</a></li>
                 </ul>
             <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>
@@ -93,26 +93,28 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal modal-fixed-footer">
     <div class="modal-content">
-       <div class="col l6 s12">
-                <form class="col s12" action="contact.php" method="post">
+        <div class="col l6 s12">
+                <form class="col s12" method="post" role="form">
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-action-account-circle prefix white-text"></i>
-                            <input id="icon_prefix" name="name" type="text" class="materialize-select validate white-text">
+                            <input id="icon_prefix" name="icon_prefix" type="text" class="materialize-select validate white-text">
                             <label for="icon_prefix" class="white-text">Subject</label>
                         </div>
+                        <br>
+                        <br>
                         <div class="input-field col s12">
                             <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix1" name="message" class="materialize-textarea white-text"></textarea>
+                            <textarea id="icon_prefix1" name="icon_prefix1" class="materialize-textarea white-text"></textarea>
                             <label for="icon_prefix1" class="white-text">Got a Problem?</label>
                         </div>
                         <div class="input-field col s12">
                             <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix2" name="message" class="materialize-textarea white-text"></textarea>
+                            <textarea id="icon_prefix2" name="icon_prefix2" class="materialize-textarea white-text"></textarea>
                             <label for="icon_prefix2" class="white-text">Got a Solution?</label>
                         </div>
                         <div class="col offset-s7 s5">
-                            <button class="btn waves-effect waves-light red darken-1" type="submit">Submit
+                            <button class="btn waves-effect waves-light red darken-1" type="submit" name="submit">Submit
                                 <i class="mdi-content-send right white-text"></i>
                             </button>
                         </div>
@@ -123,7 +125,29 @@
 </div>
 <br><br>
 
+<?php
+#Process User input
+if(isset($_POST['submit']))
+{
+    #Connecting to Local Server
+    require( 'includes/connect_db.php');
 
+    $create_date = time();
+
+    $subject = trim($_POST['icon_prefix']);
+    print_r($subject);
+    $problem = trim($_POST['icon_prefix1']);
+    print_r($problem);
+    $solution = trim($_POST['icon_prefix2']);
+    print_r($solution);
+
+    $q = "INSERT INTO tickets(create_date, subject, problem, solution)VALUES('" . $create_date . "', '" . $subject . "', '" . $problem . "', '" . $solution .  "')";
+    print_r($q);
+    $r = mysqli_query($dbc, $q);
+
+    echo "<script type='text/javascript'>alert('$q');</script>";
+}
+?>
 
 <!--Parallax-->
 <div class="parallax-container">

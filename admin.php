@@ -1,3 +1,7 @@
+<?php
+include_once('userAuthication.php');
+?>
+
 <!doctype html>
 <!--
   Material Design Lite
