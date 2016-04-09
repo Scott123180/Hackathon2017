@@ -98,19 +98,19 @@
                     <div class="row">
                         <div class="input-field col s12">
                             <i class="mdi-action-account-circle prefix white-text"></i>
-                            <input id="icon_prefix" name="icon_prefix" type="text" class="materialize-select validate white-text">
+                            <input id="icon_prefix" name="icon_prefix" type="text" maxlength="30" class="materialize-select validate white-text">
                             <label for="icon_prefix" class="white-text">Subject</label>
                         </div>
                         <br>
                         <br>
                         <div class="input-field col s12">
                             <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix1" name="icon_prefix1" class="materialize-textarea white-text"></textarea>
+                            <textarea id="icon_prefix1" name="icon_prefix1" maxlength="50" class="materialize-textarea white-text"></textarea>
                             <label for="icon_prefix1" class="white-text">Got a Problem?</label>
                         </div>
                         <div class="input-field col s12">
                             <i class="mdi-editor-mode-edit prefix white-text"></i>
-                            <textarea id="icon_prefix2" name="icon_prefix2" class="materialize-textarea white-text"></textarea>
+                            <textarea id="icon_prefix2" name="icon_prefix2" maxlength="50" class="materialize-textarea white-text"></textarea>
                             <label for="icon_prefix2" class="white-text">Got a Solution?</label>
                         </div>
                         <div class="col offset-s7 s5">
@@ -131,18 +131,21 @@ if(isset($_POST['submit']))
 {
     #Connecting to Local Server
     require( 'includes/connect_db.php');
+    
+    require('tweet.php');
 
     $create_date = time();
 
     $subject = trim($_POST['icon_prefix']);
-    print_r($subject);
+    
     $problem = trim($_POST['icon_prefix1']);
-    print_r($problem);
+   
     $solution = trim($_POST['icon_prefix2']);
-    print_r($solution);
 
+    tweet("Subject: " .$subject. " \nProblem: " .$problem. "\n Solution: ".$solution);
+    
     $q = "INSERT INTO tickets(create_date, subject, problem, solution)VALUES('" . $create_date . "', '" . $subject . "', '" . $problem . "', '" . $solution .  "')";
-    print_r($q);
+    
     $r = mysqli_query($dbc, $q);
 
     echo "<script type='text/javascript'>alert('$q');</script>";
