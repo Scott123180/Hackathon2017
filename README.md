@@ -1,2 +1,2 @@
-# Hackathon2017
+# Effervescence
 Process Improvement: Magenta Concrete Cult
