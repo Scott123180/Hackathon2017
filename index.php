@@ -54,32 +54,24 @@
             </span>-->
             <br></br>
             <div>
-            <button type="button" id="myButton" data-toggle="modal" data-target="myModal">Submit Your Issue</button> 
+                <button type="button" ID = "myButton" data-target="modal1" class="btn modal-trigger">Open Modal</button>
             </div>
         </h1>
     </div>
 </div>
 
-            <!-- Modal -->
-            <div id="myModal" class="modal fade" role="dialog">
-                <div class="modal-dialog">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+          
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title"><b><font color="red"> WARNING: </font></b></h4>
-                        </div>
-                        <div class="modal-body">
-                            <p id="testing">Are you sure you want to continue?</p>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" name="submit" class="btn btn-default">Okay</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
 <!--Footer-->
 <footer id="contact" class="page-footer default_color scrollspy">
@@ -117,6 +109,17 @@
     <!--  Scripts-->
     <script src="min/plugin-min.js"></script>
     <script src="min/custom-min.js"></script>
+    
+    
+    <script src= $(document).ready(function(){
+        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+        $('.modal-trigger').leanModal();
+    });></script>
+    
+        <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
