@@ -21,6 +21,3 @@ VALUES
 ("James Crowley", "james.crowley1@marist.edu", "Super User"),
 ("John Randis", "john.randis1@marist.edu", "Admin"),
 ("Scott Hansen", "scott.hansen1@marist.edu", "Moderator")
-
-#Testing the table
-SELECT * FROM users;
