@@ -6,13 +6,15 @@ function tweet($message){
     //open and write to file
     $tweetText = fopen("text.txt", "w") or die("Unable to open the file!");
 
-    $tweetText = "test tweet text 1234";
     //change to other string in other php file
-    $txt = "can we do it, yes we can";
+    $txt = "{$message}";
     fwrite($tweetText, $txt);
     fclose($tweetText);
 
-    system("ruby /ruby/sendTweet.rb");
+    $cmd = "ruby sendTweet.rb";
+    echo system($cmd);
 }
+
+tweet("hello");
 
 ?>
