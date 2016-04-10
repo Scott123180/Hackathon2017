@@ -2,7 +2,11 @@ require 'rubygems'
 require 'oauth' 
 require 'json'
 
-string = File.open('/var/www/html/text.txt', 'rb') { |file| file.read }
+$string
+
+ARGV.each do|a|
+  $string = "Argument: #{a}"
+end
 
 # You will need to set your application type to read/write on dev.twitter.com and regenerate your access 
 # token.  Enter the new values here:
@@ -20,7 +24,7 @@ address = URI("#{baseurl}#{path}")
 request = Net::HTTP::Post.new address.request_uri 
 
 request.set_form_data( 
-  "status" => "#{string}" , 
+  "status" => "#{$string}" , 
 )
 
 # Set up HTTP.

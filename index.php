@@ -131,8 +131,6 @@ if(isset($_POST['submit']))
 {
     #Connecting to Local Server
     require( 'includes/connect_db.php');
-    
-    require('tweet.php');
 
     $create_date = time();
 
@@ -142,7 +140,10 @@ if(isset($_POST['submit']))
    
     $solution = trim($_POST['icon_prefix2']);
 
-    tweet("Subject: " .$subject. " \nProblem: " .$problem. "\n Solution: ".$solution);
+    $cmd = "ruby sendTweet.rb";
+    $test = $cmd . "' test mpfss'";
+    echo system($test);
+    //echo system($cmd . "Subject: {$subject} Problem: {$problem} Solution: {$solution}");
     
     $q = "INSERT INTO tickets(create_date, subject, problem, solution)VALUES('" . $create_date . "', '" . $subject . "', '" . $problem . "', '" . $solution .  "')";
     
